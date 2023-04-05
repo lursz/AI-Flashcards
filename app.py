@@ -1,18 +1,15 @@
 import sys
 import os
-import keyboard
-
-
-
-import logic
+from logic.gpt import GPT
+from logic.reader import Reader
 
 
 def main():
     # Initialize
-    ai = logic.GPT()
-    reader = logic.Reader()
+    ai = GPT()
+    reader = Reader()
         
-    # Read the file
+    # ------------------------------- Read the file ------------------------------ #
     input_file = sys.argv[1]
     if (input_file.endswith(".csv")):
         reader.readCSV(input_file)
@@ -26,27 +23,39 @@ def main():
         reader.cutQuestions(int(sys.argv[2]), int(sys.argv[3]))
     # Shuffle
     reader.shuffle()
+    # print(reader.list)
     
+    # ------------------------------- Program loop ------------------------------- #
     counter = 0
-    while(True):
+    while(counter < len(reader.list)):
         os.system('cls||clear')
-        temp_gpt = ai.askChatGPT(reader.getQuestion(counter), prefix="Explain  ")
-        print("Question: " + reader.getQuestion(counter))
-
-        if keyboard.is_pressed(' '):
-            print('--- \n')
-            print("Answer: " + reader.getAnswer(counter))
-            print("\n")
-            print("Info: " + temp_gpt)
-        elif keyboard.is_pressed('d'):
+        print("[", counter, "/", len(reader.list), "]   Question: " + reader.getQuestion(counter))
+        user_answer = input(" -> ")
+        
+        # Ask GPT for an explanation
+        temp_gpt = ai.askChatGPT(reader.getAnswer(counter), prefix="Explain:  ")
+        
+        # Check wheter the answer is correct
+        if ai.verifyAnswer(reader.getQuestion(counter), user_answer):
+            print("Correct!\n Explanation: \n")
+            print(temp_gpt)
+        else:
+            print("Incorrect!\n The correct answer is: ", reader.getAnswer(counter), "\n Explanation: \n")
+            print(temp_gpt)
+            reader.list.append(reader.list[counter])
+        
+        # Proceed
+        print(" -- [d] Next question, [a] Previous question, [q] Quit --  ")
+        user_input = input(" -> ")
+        if user_input == "d":
             counter += 1
-        elif keyboard.is_pressed('a'):
+        elif user_input == "a":
             counter -= 1
-
-        elif keyboard.is_pressed('q'):
-            print('Goodbye!')
+        elif user_input == "q":
             break
-        print(reader.list)
+        else:
+            print("Invalid input")
+        
     
     
     

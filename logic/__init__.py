@@ -1,2 +1,2 @@
-from logic import Reader
-from logic import GPT
+from .gpt import GPT
+from .reader import Reader

@@ -1,29 +1,6 @@
 import random
-import openai
 import openpyxl
 import csv
-
-
-# ---------------------------------------------------------------------------- #
-#                                      GPT                                     #
-# ---------------------------------------------------------------------------- #
-class GPT:
-    def __init__(self):
-        self.model = "gpt-3.5-turbo"
-        self.api_key = open("key.txt","r").read().strip('\n')
-    
-    def askChatGPT(self, prompt: str, prefix:str = '', temp: float = 0.8, max_token: int = 350) -> str:
-        openai.api_key = self.api_key
-        response = openai.ChatCompletion.create(
-            model = self.model,
-            messages = [{"role": "user", "content": prefix + prompt}],
-            temperature = temp,
-            max_tokens = max_token
-        )
-        answer = response.choices[0].message["content"]
-        print(answer)
-        return answer
-
 
 
 # ---------------------------------------------------------------------------- #
