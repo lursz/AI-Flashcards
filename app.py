@@ -1,5 +1,6 @@
 import sys
 import os
+import threading
 from logic.gpt import GPT
 from logic.reader import Reader
 
@@ -29,19 +30,23 @@ def main():
     counter = 0
     while(counter < len(reader.list)):
         os.system('cls||clear')
+        
+        # Ask GPT for an explanation
+        thread = threading.Thread(target=ai.askChatGPT, args=(reader.getAnswer(counter), "Explain:  "))
+        thread.start()
+        # temp_gpt = ai.askChatGPT(reader.getAnswer(counter), prefix="Explain:  ")
+        
+        # Print the question
         print("[", counter, "/", len(reader.list), "]   Question: " + reader.getQuestion(counter))
         user_answer = input(" -> ")
         
-        # Ask GPT for an explanation
-        temp_gpt = ai.askChatGPT(reader.getAnswer(counter), prefix="Explain:  ")
-        
         # Check wheter the answer is correct
-        if ai.verifyAnswer(reader.getQuestion(counter), user_answer):
+        if ai.verifyAnswer(reader.getQuestion(counter), reader.getAnswer(counter), user_answer):
             print("Correct!\n Explanation: \n")
-            print(temp_gpt)
+            thread.join()
         else:
-            print("Incorrect!\n The correct answer is: ", reader.getAnswer(counter), "\n Explanation: \n")
-            print(temp_gpt)
+            print("Incorrect!\n The correct answer is: ", reader.getAnswer(counter), "\nExplanation: \n")
+            thread.join()
             reader.list.append(reader.list[counter])
         
         # Proceed
