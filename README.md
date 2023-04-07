@@ -1,4 +1,4 @@
-# AI assisted flashcards
+# AI flashcards
 ## About
 This repo features a unique flashcards viewer, designed to efficiently aid in the memorization and comprehension of any educational material. It is capable of reading data from both .xlsx and .csv files, presenting it in the terminal for convenience. Additionally, the flashcard viewer also has a built-in AI assistant that can impersonate the style of anyone to provide tailored (or just plain funny) way of aiding you in your learning process. Program dynamically evaluates your responses, offering explanations to any misconceptions and reinforcing your understanding of the subject matter.
 
@@ -30,3 +30,9 @@ The AI assistant is capable of impersonating the style of anyone. However, the m
 In order to change the AI assistant's style, you will need to edit `app.py` file and change the `style` variable to the name of your liking.
 
 ## Screenshots
+Correct answer:
+![right](https://user-images.githubusercontent.com/93160829/230689929-2ff8afaf-a524-4030-97dd-6dfef2ec5a82.gif)
+Incorrect answer:
+![wrong](https://user-images.githubusercontent.com/93160829/230689947-38470cfd-7ff9-4145-b100-2ef3387d22ca.gif)
+Incorrect answer && 'toxic Donald Trump' style
+![trump](https://user-images.githubusercontent.com/93160829/230689994-15dbcf24-7871-44e6-99f7-a1d87623df2b.gif)
