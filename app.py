@@ -1,13 +1,12 @@
 import sys
 import os
-import threading
 from logic.gpt import GPT
 from logic.reader import Reader
 
 
 def main():
     # Initialize
-    ai = GPT()
+    ai = GPT(style = "Donald Trump") #leave empty for neutral style 
     reader = Reader()
 
     should_quit = False

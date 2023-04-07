@@ -5,11 +5,11 @@ import openai
 #                                      GPT                                     #
 # ---------------------------------------------------------------------------- #
 class GPT:
-    def __init__(self):
+    def __init__(self, style: str = ""):
         self.model = "gpt-3.5-turbo"
         self.api_key = open("key.txt", "r").read().strip('\n')
         openai.api_key = self.api_key
-        self.gpt_style = "" #empty string for no style
+        self.gpt_style = "Write in a style of: " + style
     
     
     def askChatGPT(self, chat_object: list[dict], temp: float = 0.6, max_token: int = 350) -> str:
