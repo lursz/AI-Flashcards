@@ -1,6 +1,6 @@
 # AI assisted flashcards
 ## About
-This repo contains a flashcards viewer. It reads from .xlsx or .csv files, loads and shuffles the data, and then displays it in the terminal. As the more unique features go, it also has a built-in AI that can help you learn the cards. Every time you answer an inquiry, the AI will inteligently check whether you were correct or not, and then will provide you with a simple explanation of the issue. Whole process is intended to help you memorise and understand content of the cards faster and more efficiently.
+This repo contains a flashcards viewer. It reads from .xlsx or .csv files, loads and shuffles the data, and then displays it in the terminal. As the more unique features go, it also has a built-in AI that can help you learn the cards. Every time you answer an inquiry, thJ AI will inteligently check whether you were correct or not, and then will provide you with a simple explanation of the issue. Whole process is intended to help you memorise and understand content of the cards faster and more efficiently.
 
 ## Installation
 In order to run type in the following command:

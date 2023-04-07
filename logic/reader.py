@@ -10,15 +10,17 @@ class Reader:
     def __init__(self):
         self.list = []
         
+        
     def readXlsx(self, xlsx_name: str):
         # Open the xlsx file
         workbook = openpyxl.load_workbook(filename=xlsx_name, read_only=True, data_only=True)
         sheet = workbook.active
         
         for row in sheet.iter_rows(values_only=True):
-            question = row[0]
-            answer = row[1]
+            question = str(row[0])
+            answer = str(row[1])
             self.list.append((question, answer))
+            
             
     def readCSV(self, csv_name: str):
         # Find the delimiter used in the csv file
