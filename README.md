@@ -1,6 +1,6 @@
 # AI flashcards
 ## About
-This repo features a unique flashcards viewer, designed to efficiently aid in the memorization and comprehension of any educational material. It is capable of reading data from both .xlsx and .csv files, presenting it in the terminal for convenience. Additionally, the flashcard viewer also has a built-in AI assistant that can impersonate the style of anyone to provide tailored (or just plain funny) way of aiding you in your learning process. Program dynamically evaluates your responses, offering explanations to any misconceptions and reinforcing your understanding of the subject matter.
+This repo features a unique flashcards viewer, designed to efficiently aid in the memorization and comprehension of any educational material. It reads data from both .xlsx and .csv files. Additionally, the flashcard viewer also has a built-in AI assistant that can impersonate the style of anyone to provide tailored (or just plain funny) way of aiding you in your learning process. Program dynamically evaluates your responses, offering explanations to any misconceptions and reinforcing your understanding of the subject matter.
 
 ## Installation
 In order to run the program, you will need to install `Python3` and `pip`.
