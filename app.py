@@ -4,9 +4,10 @@ from logic.gpt import GPT
 from logic.reader import Reader
 
 
-def main():
+def main() -> None:
     # Initialize
-    ai = GPT(style = "Donald Trump") #leave empty for neutral style 
+    ai = GPT(style = "toxic Donald Trump") #leave empty for neutral style 
+    # ai = GPT() #leave empty for neutral style 
     reader = Reader()
 
     should_quit = False

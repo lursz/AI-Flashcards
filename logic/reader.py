@@ -11,7 +11,7 @@ class Reader:
         self.list = []
         
         
-    def readXlsx(self, xlsx_name: str):
+    def readXlsx(self, xlsx_name: str) -> None:
         # Open the xlsx file
         workbook = openpyxl.load_workbook(filename=xlsx_name, read_only=True, data_only=True)
         sheet = workbook.active
@@ -22,7 +22,7 @@ class Reader:
             self.list.append((question, answer))
             
             
-    def readCSV(self, csv_name: str):
+    def readCSV(self, csv_name: str) -> None:
         # Find the delimiter used in the csv file
         with open(csv_name, 'r', newline='', encoding='utf-8') as csvfile:
             # read the first 1024 bytes to detect the delimiter
@@ -38,10 +38,10 @@ class Reader:
             self.list.append((question, answer))
         
         
-    def cutQuestions(self, begin: int, end: int):
+    def cutQuestions(self, begin: int, end: int) -> None:
         self.list = self.list[begin:end]
     
-    def shuffle(self):
+    def shuffle(self) -> None:
         random.shuffle(self.list)
             
     def getQuestion(self, index: int) -> str:

@@ -1,0 +1,5 @@
+*.xlsx
+*.csv
+__pycache__/
+logic/__pycache__/
+key.txt
